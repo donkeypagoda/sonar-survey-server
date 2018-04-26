@@ -26,7 +26,6 @@ const answers = [
   }
 ]
 
-
 exports.seed = function(knex, Promise) {
   return knex('answers').del()
     .then(() => {
