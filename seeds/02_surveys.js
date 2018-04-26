@@ -1,13 +1,29 @@
+const surveys = [
+  {
+    "title": "customer satisfaction",
+    "url": "/customer_satisfaction",
+    "user_id": 1
+  }, {
+    "title": "lets talk politics",
+    "url": "/lets_talk_politics",
+    "user_id": 2
+  }
+]
+
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
+  return knex('surveys').del()
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('surveys_id_seq', 1, false);"
+      )
+    })
+    .then(() => {
+      return knex('surveys').insert(surveys);
+    })
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('surveys_id_seq', (SELECT MAX(id) FROM surveys));"
+      );
     });
 };
