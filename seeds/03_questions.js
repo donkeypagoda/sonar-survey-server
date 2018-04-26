@@ -1,13 +1,53 @@
+const questions = [
+  {
+    "survey_id": 1,
+    "prompt": "Do you like our tacos?",
+    "answer_type": "boolean"
+  }, {
+    "survey_id": 1,
+    "prompt": "What's your favorite taco filling?",
+    "answer_type": "multiple_choice"
+  }, {
+    "survey_id": 1,
+    "prompt": "What's your favorite topping?",
+    "answer_type": "multiple_choice"
+  }, {
+    "survey_id": 1,
+    "prompt": "What can we do better?",
+    "answer_type": "string"
+  }, {
+    "survey_id": 2,
+    "prompt": "Does Trump suck?",
+    "answer_type": "boolean"
+  }, {
+    "survey_id": 2,
+    "prompt": "Is fake news fake?",
+    "answer_type": "boolean"
+  }, {
+    "survey_id": 2,
+    "prompt": "What's your political party of choice?",
+    "answer_type": "multiple_choice"
+  }, {
+    "survey_id": 2,
+    "prompt": "Who would you like to see as president?",
+    "answer_type": "string"
+  }
+]
+
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
+  return knex('questions').del()
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('questions_id_seq', 1, false);"
+      )
+    })
+    .then(() => {
+      return knex('questions').insert(questions);
+    })
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('questions_id_seq', (SELECT MAX(id) FROM questions));"
+      );
     });
 };
