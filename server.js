@@ -1,11 +1,14 @@
 const express = require ("express")
 const bodyParser = require ("body-parser")
 const users = require ("./routes/users")
+const token = require("./routes/token")
 const cors = require ("cors")
 
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
+app.use(users)
+app.use(token)
 
 const port = process.env.PORT || 5000
 
