@@ -2,6 +2,7 @@ const express = require ("express")
 const bodyParser = require ("body-parser")
 const users = require ("./routes/users")
 const token = require("./routes/token")
+const results = require("./routes/results")
 const cors = require ("cors")
 
 const app = express()
