@@ -25,7 +25,13 @@ router.post("/results/:id" (req, res, next) => {
     "user_id": req.body.user_id;
     "response_string": req.body.response_string;
   }
-  knex("responses")
+  knex("responses").insert(newResponse, "*")
+    .then(result => {
+      res.send(result)
+    })
+    .catch(err => {
+      return next(err)
+    })
 })
 
 module.exports = router
