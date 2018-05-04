@@ -4,10 +4,10 @@ const answers = [
     "answer_array": null
   }, {
     "question_id": 2,
-    "answer_array": ["chicken", "beef", "beans", "pork"]
+    "answer_array": JSON.stringify(["chicken", "beef", "beans", "pork"])
   }, {
     "question_id": 3,
-    "answer_array": ["salsa", "cheese", "sour cream", "guacamole"]
+    "answer_array": JSON.stringify(["salsa", "cheese", "sour cream", "guacamole"])
   }, {
     "question_id": 4,
     "answer_array": null
@@ -19,7 +19,7 @@ const answers = [
     "answer_array": null
   }, {
     "question_id": 7,
-    "answer_array": ["Republican", "Democrat", "Nazi", "Commie"]
+    "answer_array": JSON.stringify(["Republican", "Democrat", "Nazi", "Commie"])
   }, {
     "question_id": 8,
     "answer_array": null
