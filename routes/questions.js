@@ -21,7 +21,7 @@ router.post("/questions", (req, res, next) => {
     "prompt": req.body.prompt,
     "answer_type": req.body.prompt
   }
-  return knex("questions").insert(newQuestion. "*")
+  return knex("questions").insert(newQuestion, "*")
     .then((result) => {
       res.send(result)
       console.log(result)
