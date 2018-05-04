@@ -9,6 +9,7 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(users)
 app.use(token)
+app.use(results)
 
 const port = process.env.PORT || 5000
 
