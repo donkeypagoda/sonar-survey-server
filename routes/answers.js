@@ -11,9 +11,15 @@ router.get("/answers/:id", (req, res, next) => {
 
 router.post("/answers", (req, res, next) => {
   knex("answers").insert({
-                          "question_id": req.body.question_id,
-                          "answer_array": re.body.answer_array
-                        }, '*')
+      "question_id": req.body.question_id,
+      "answer_array": re.body.answer_array
+    }, '*')
+    .then((result) => {
+      res.send(result)
+      console.log(result)
+    })
+    .catch(err => next(err))
+
 })
 
 module.exports = router;
