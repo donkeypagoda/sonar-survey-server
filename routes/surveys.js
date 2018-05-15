@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/survey', (req, res, next) =>{
   knex('surveys').then((surveys) => {
     console.log(surveys)
-    res.send(surveys)
+    res.send({surveys})
   })
   .catch((err) => next(err))
 })
