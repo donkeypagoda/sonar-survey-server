@@ -1,5 +1,5 @@
 const express = require('express')
-const bcrypt = require('bcrypt-as-promised')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const knex = require('../knex')
 
