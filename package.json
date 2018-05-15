@@ -19,7 +19,6 @@
   "homepage": "https://github.com/donkeypagoda/sonar-survey-server#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
-    "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
