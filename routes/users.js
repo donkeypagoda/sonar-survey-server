@@ -13,7 +13,7 @@ router.post('/users', (req, res, next) => {
       }
       bcrypt.hash(req.body.password, 12)
         .then((hashed_pass) => {
-          const newUser = {'name': req.body.username, 'email': req.body.email,'hashed_password': hashed_pass};
+          const newUser = {'name': req.body.name, 'email': req.body.email,'hashed_password': hashed_pass};
           return knex('users').insert(newUser, '*')
         })
         .then((result) => {
