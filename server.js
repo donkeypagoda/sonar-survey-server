@@ -5,6 +5,7 @@ const token = require("./routes/token")
 const results = require("./routes/results")
 const questions = require('./routes/questions')
 const answers = require("./routes/answers")
+const surveys = require("./routes/surveys")
 const cors = require ("cors")
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(token)
 app.use(results)
 app.use(questions)
 app.use(answers)
+app.use(surveys)
 
 const port = process.env.PORT || 5000
 
