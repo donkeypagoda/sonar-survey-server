@@ -20,6 +20,14 @@ router.get('/survey/:id', (req, res, next) =>{
     .catch((err) => next(err))
 })
 
+router.get('/survey/q_and_a/:id', (req, res, next) =>{
+  knex('surveys').where("id", req.params.id)
+    .then((survey) => {
+      res.send(survey)
+    })
+    .catch((err) => next(err))
+})
+
 
 router.post('/survey', (req, res, next) => {
   knex("surveys").where("title", req.body.title).andWhere("user_id", req.body.user_id)
