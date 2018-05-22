@@ -26,7 +26,7 @@ router.get('/survey/q_and_a/:id', (req, res, next) =>{
     .where("surveys.id", req.params.id)
     .then((qAndA) => {
       console.log(qAndA)
-      res.send(qAndA)
+      res.send({qAndA})
     })
     .catch((err) => next(err))
 })
