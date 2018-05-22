@@ -21,8 +21,11 @@ router.get('/survey/:id', (req, res, next) =>{
 })
 
 router.get('/survey/q_and_a/:id', (req, res, next) =>{
-  knex.from('surveys').innerJoin("questions", "questions.survey_id", "surveys.id")
-    .innerJoin("answers", "questions.id", "answers.question_id")
+  knex("surveys").where("id", req.params.id)
+    .then(survey => {
+      survey.innerJoin("questions", "questions.survey_id", "surveys.id")
+      .innerJoin("answers", "questions.id", "answers.question_id")
+    })
     .then((qAndA) => {
       res.send(qAndA)
     })
