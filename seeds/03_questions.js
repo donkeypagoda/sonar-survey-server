@@ -1,8 +1,12 @@
 const questions = [
   {
     "survey_id": 1,
-    "prompt": "How much do you like our tacos?",
+    "prompt": "Have you eaten our tacos?",
     "answer_type": "boolean"
+  }, {
+    "survey_id": 1,
+    "prompt": "How much do you like our tacos?",
+    "answer_type": "range"
   }, {
     "survey_id": 1,
     "prompt": "What's your favorite taco filling?",
