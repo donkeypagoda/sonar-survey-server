@@ -1,7 +1,7 @@
 const questions = [
   {
     "survey_id": 1,
-    "prompt": "Do you like our tacos?",
+    "prompt": "How much do you like our tacos?",
     "answer_type": "boolean"
   }, {
     "survey_id": 1,
@@ -17,8 +17,8 @@ const questions = [
     "answer_type": "string"
   }, {
     "survey_id": 2,
-    "prompt": "Does Trump suck?",
-    "answer_type": "boolean"
+    "prompt": "How Much Does Trump suck?",
+    "answer_type": "range"
   }, {
     "survey_id": 2,
     "prompt": "Is fake news fake?",
