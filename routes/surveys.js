@@ -33,23 +33,24 @@ router.get('/survey/q_and_a/:id', (req, res, next) =>{
 
 
 router.post('/survey', (req, res, next) => {
-  knex("surveys").where("title", req.body.title).andWhere("user_id", req.body.user_id)
-    .then((row) => {
-      if (row) return next(console.log("There is already a survey with this title created by this user"))
+  // knex("surveys").where("title", req.body.title).andWhere("user_id", req.body.user_id)
+  //   .then((row) => {
+  //     if (row) return next(console.log("There is already a survey with this title created by this user"))
       const newSurvey ={
         "title": req.body.title,
         "url": req.body.url,
         "user_id": req.body.user_id
       }
-      return knex("surveys").insert(newSurvey, '*')
+      //return
+      knex("surveys").insert(newSurvey, '*')
       .then((result) =>{
         console.log(result)
-        res.send(result)
+        res.send({result})
       })
       .catch((err) =>{
         return next(err)
       })
-    })
+    // })
     .catch((err) =>{
       return next(err)
     })
