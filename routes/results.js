@@ -39,6 +39,7 @@ router.post("/results", (req, res, next) => {
   knex("responses").insert(newResponse, "*")
     .then((result) => {
       res.send(result)
+      console.log(result)
     })
     .catch(err => {
       return next(err)
