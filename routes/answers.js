@@ -10,10 +10,11 @@ router.get("/answers/:id", (req, res, next) => {
 })
 
 router.post("/answers", (req, res, next) => {
-  knex("answers").insert({
-      "question_id": req.body.question_id,
-      "answer_array": req.body.answer_array
-    }, '*')
+  const newAnswer = {
+    "question_id": req.body.question_id,
+    "answer_array": req.body.answer_array
+  }
+  return knex("answers").insert(newAnswer, "*")
     .then((result) => {
       res.send(result)
       console.log(result)
