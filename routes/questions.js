@@ -19,7 +19,7 @@ router.post("/questions", (req, res, next) => {
   const newQuestion = {
     "survey_id": req.body.survey_id,
     "prompt": req.body.prompt,
-    "answer_type": req.body.prompt
+    "answer_type": req.body.answer_type
   }
   return knex("questions").insert(newQuestion, "*")
     .then((result) => {
