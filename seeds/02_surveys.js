@@ -1,11 +1,11 @@
 const surveys = [
   {
     "title": "customer satisfaction",
-    "url": "/customer_satisfaction",
+    "url": "customer_satisfaction",
     "user_id": 1
   }, {
     "title": "lets talk politics",
-    "url": "/lets_talk_politics",
+    "url": "lets_talk_politics",
     "user_id": 2
   }
 ]
