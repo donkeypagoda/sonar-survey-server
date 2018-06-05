@@ -4,12 +4,12 @@ const knex = require("../knex")
 
 const router = express.Router()
 
-router.get('/survey/:id', (req, res, next) =>{
-  knex('surveys').where("id", req.params.id)
-    .then((survey) => {
-      res.send(survey)
-    })
-    .catch((err) => next(err))
+router.get('/survey', (req, res, next) =>{
+  knex('surveys').then((surveys) => {
+    console.log(surveys)
+    res.send({surveys})
+  })
+  .catch((err) => next(err))
 })
 
 router.get('/survey/q_and_a/:id', (req, res, next) =>{
