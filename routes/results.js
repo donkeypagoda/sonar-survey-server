@@ -5,18 +5,10 @@ const router = express.Router()
 
 // there is one row, per question, per response, per user.
 
-// router.get("/results/:survey_id", (req, res, next) => {
-//   knex("responses").where("survey_id", req.params.survey_id)
-//     .then((results) => {
-//       res.send(results)
-//     })
-//     .catch(err => next(err))
-// })
-
 router.get('/results/:survey_id', (req, res, next) =>{
   knex("responses").innerJoin("questions", "questions.survey_id", "responses.survey_id")
     .innerJoin("answers", "questions.id", "answers.question_id")
-    .where("surveys.id", req.params.survey_id)
+    .where("responses.survey_id", req.params.survey_id)
     .then((responses) => {
       console.log(responses)
       res.send({responses})
