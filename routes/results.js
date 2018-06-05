@@ -14,12 +14,12 @@ const router = express.Router()
 // })
 
 router.get('/results/:survey_id', (req, res, next) =>{
-  knex("responses").innerJoin("questions", "questions.survey_id", "surveys.id")
+  knex("responses").innerJoin("questions", "questions.survey_id", "responses.survey_id")
     .innerJoin("answers", "questions.id", "answers.question_id")
-    .where("surveys.id", req.params.id)
-    .then((qAndA) => {
-      console.log(qAndA)
-      res.send({qAndA})
+    .where("surveys.id", req.params.survey_id)
+    .then((responses) => {
+      console.log(responses)
+      res.send({responses})
     })
     .catch((err) => next(err))
 })
