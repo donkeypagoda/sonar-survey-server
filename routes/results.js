@@ -21,9 +21,9 @@ router.get('/results/:survey_id', (req, res, next) =>{
     .innerJoin("responses", "questions.id", "responses.question_id")
     .innerJoin("answers", "questions.id", "answers.question_id")
     .where("surveys.id", req.params.survey_id)
-    .then((qAndA) => {
-      console.log(qAndA)
-      res.send({qAndA})
+    .then((responses) => {
+      console.log(responses)
+      res.send({responses})
     })
     .catch((err) => next(err))
 })
