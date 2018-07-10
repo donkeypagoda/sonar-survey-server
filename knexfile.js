@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost:5432/sonar-survey'
+    connection: 'postgres://localhost/sonar-survey'
   },
   production: {
     client: 'pg',
