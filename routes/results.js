@@ -18,8 +18,8 @@ const router = express.Router()
 
 router.get('/results/:survey_id', (req, res, next) =>{
   knex("surveys").innerJoin("questions", "questions.survey_id", "surveys.id")
-    .innerJoin("responses", "questions.id", "responses.question_id")
-    .innerJoin("answers", "questions.id", "answers.question_id")
+    .innerJoin("responses", "responses.question_id", "questions.id")
+    .innerJoin("answers", "answers.question_id", "questions.id")
     .where("surveys.id", req.params.survey_id)
     .then((responses) => {
       console.log(responses)
