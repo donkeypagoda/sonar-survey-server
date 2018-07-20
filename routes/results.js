@@ -4,17 +4,7 @@ const knex = require("../knex")
 const router = express.Router()
 
 // there is one row, per question, per response, per user.
-
-// router.get('/results/:survey_id', (req, res, next) =>{
-//   knex("responses").innerJoin("questions", "questions.survey_id", "responses.survey_id")
-//     .innerJoin("answers", "questions.id", "answers.question_id")
-//     .where("responses.survey_id", req.params.survey_id)
-//     .then((responses) => {
-//       console.log(responses)
-//       res.send({responses})
-//     })
-//     .catch((err) => next(err))
-// })
+// but the below join is still totall hosed
 
 router.get('/results/:survey_id', (req, res, next) =>{
   knex("surveys").innerJoin("questions", "questions.survey_id", "surveys.id")
