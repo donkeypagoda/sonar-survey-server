@@ -8,15 +8,20 @@ const responses = [
     "survey_id": 1,
     "question_id": 2,
     "user_id": 1,
-    "response_string": "chicken"
+    "response_string": 7
   }, {
     "survey_id": 1,
     "question_id": 3,
     "user_id": 1,
-    "response_string": "cheese"
+    "response_string": "chicken"
   }, {
     "survey_id": 1,
     "question_id": 4,
+    "user_id": 1,
+    "response_string": "cheese"
+  }, {
+    "survey_id": 1,
+    "question_id": 5,
     "user_id": 1,
     "response_string": "give me free food"
   }, {
@@ -27,16 +32,21 @@ const responses = [
   }, {
     "survey_id": 1,
     "question_id": 2,
-    "user_id": 2,
-    "response_string": "beef"
+    "user_id": 1,
+    "response_string": 2
   }, {
     "survey_id": 1,
     "question_id": 3,
     "user_id": 2,
-    "response_string": "salsa"
+    "response_string": "beef"
   }, {
     "survey_id": 1,
     "question_id": 4,
+    "user_id": 2,
+    "response_string": "salsa"
+  }, {
+    "survey_id": 1,
+    "question_id": 5,
     "user_id": 2,
     "response_string": "nothing, you're my heros!"
   }, {
