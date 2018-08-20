@@ -7,16 +7,29 @@ const router = express.Router()
 // but the below join is still totall hosed
 
 router.get('/results/:survey_id', (req, res, next) =>{
-  knex("surveys").innerJoin("questions", "questions.survey_id", "surveys.id")
+  knex("responses").innerJoin("questions", "questions.survey_id", "surveys.id")
     .innerJoin("responses", "responses.question_id", "questions.id")
     .innerJoin("answers", "answers.question_id", "questions.id")
-    .where("surveys.id", req.params.survey_id)
+    .where("responses.survey_id", req.params.survey_id)
     .then((responses) => {
       console.log(responses)
       res.send({responses})
     })
     .catch((err) => next(err))
 })
+
+
+// router.get('/results/:survey_id', (req, res, next) =>{
+//   knex("surveys").innerJoin("questions", "questions.survey_id", "surveys.id")
+//     .innerJoin("responses", "responses.question_id", "questions.id")
+//     .innerJoin("answers", "answers.question_id", "questions.id")
+//     .where("surveys.id", req.params.survey_id)
+//     .then((responses) => {
+//       console.log(responses)
+//       res.send({responses})
+//     })
+//     .catch((err) => next(err))
+// })
 
 router.post("/results", (req, res, next) => {
   const newResponse = {
